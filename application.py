@@ -13,6 +13,7 @@ from werkzeug.exceptions import default_exceptions, HTTPException, InternalServe
 from werkzeug.security import check_password_hash, generate_password_hash
 import sqlite3
 
+
 from helpers import (
     get_player,
     login_required,
