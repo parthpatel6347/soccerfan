@@ -1,0 +1,29 @@
+{% extends "layout.html" %} {% block title %} - Teams {% endblock %} {% block
+main%}
+<div class="container col-xl-4 col-lg-5 col-md-6 col-sm-8 col-10 mt-5">
+  <form action="/players" method="post">
+      <div class="d-flex">
+        <input
+        type="text"
+        name="name"
+        placeholder="Player Name"
+        class="form-control"
+        required
+        autocomplete="off"
+      />
+      <select name="league_id" class="form-control" required>
+        <option disabled selected value="">Select League</option>
+        {% for league in leagues %}
+            <option value="{{ league["id"] }}">{{ league["name"] }}</option>
+        {% endfor %}
+    </select>
+      </div>
+      <div class="button-container">
+      <button type="submit" class="search-button">Search</button>
+    </div>
+  </form>
+</div>
+<div class="found-players-container">
+    {% block players %} {% endblock %}
+  </div>
+{% endblock %}

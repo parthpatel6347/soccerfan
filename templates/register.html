@@ -1,0 +1,51 @@
+{% extends "layout.html" %} {% block title %} - Register {% endblock %} {% block
+main%}
+<div
+  class="
+    container
+    col-xl-3 col-lg-4 col-md-6 col-sm-8 col-10
+    px-5
+    py-4
+    custom-container
+  "
+>
+  <form action="/register" method="post">
+    <div class="mb-4">
+      <label for="username" class="form-label">Username</label>
+
+      <input
+        autocomplete="off"
+        class="form-control"
+        id="username"
+        autofocus
+        name="username"
+        placeholder="Username"
+        type="text"
+      />
+    </div>
+    <div class="mb-4">
+      <label for="password" class="form-label">Password</label>
+      <input
+        type="password"
+        class="form-control"
+        id="password"
+        placeholder="Password"
+        name="password"
+      />
+    </div>
+    <div class="mb-4">
+      <label for="confirmation" class="form-label">Confirm password</label>
+      <input
+        class="form-control"
+        id="confirmation"
+        name="confirmation"
+        placeholder="Confirm password"
+        type="password"
+      />
+    </div>
+    <div class="d-grid gap-2 col-4 mx-auto">
+      <button type="submit" class="custom-button">Register</button>
+    </div>
+  </form>
+</div>
+{% endblock %}

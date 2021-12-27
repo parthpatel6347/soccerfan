@@ -1,0 +1,38 @@
+{% extends "teams.html" %} {% block teams %} {% if not teams %}
+<h5>No team found with your search criteria.</h5>
+{% endif %}
+<div class="team-card">
+  <div class="main-container">
+    <div class="team-header">
+      <img class="team-logo-main" src="{{team["team"]["team_logo"]}}"/>
+      <span class="team-title">{{team["team"]["name"]}}</span>
+    </div>
+    <div class="previous-fixture">
+      <span class="small-title">Previous Fixture</span>
+      <span class="small-info"
+        >{{team["last"][0]["home"]["name"]}}
+        <em>{{team["last"][0]["score"]["home"]}}</em> :
+        <em>{{team["last"][0]["score"]["away"]}}</em>
+        {{team["last"][0]["away"]["name"]}}</span
+      >
+      <span class="match-time">{{team["last"][0]["date"] | dt}}</span>
+    </div>
+    <div class="upcoming-fixture">
+      {% if not team["next"] %}
+      <span class="mid-info">No upcoming fixtures.</span>
+      {% else %}
+      <span class="mid-title">Upcoming Fixture</span>
+      <span class="mid-info"
+        >{{team["next"][0]["home"]["name"]}} VS
+        {{team["next"][0]["away"]["name"]}}</span
+      >
+      <span class="match-time">{{team["next"][0]["date"] | dt}}</span>
+      {% endif %}
+    </div>
+    <form action="/addteam" method="post">
+      <input type="hidden" value="team" name="team_id" />
+      <button class="custom-button" type="submit">Add to my teams</button>
+    </form>
+  </div>
+</div>
+{% endblock %}

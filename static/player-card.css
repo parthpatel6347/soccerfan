@@ -1,0 +1,109 @@
+
+.found-players-container{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 40px;
+    padding: 0 15%;
+}
+
+.player-card{
+    margin: 15px;
+    box-sizing: border-box;
+    padding: 15px;
+    width: 230px;
+    height: 270px;
+    background-color:#c4e0c4;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: rgba(19, 126, 67, 0.1) 0px 20px 25px -5px, rgba(10, 90, 53, 0.04) 0px 10px 10px -5px;
+}
+
+.player-card-index{
+    margin: 15px;
+    box-sizing: border-box;
+    padding: 15px;
+    width: 230px;
+    height: 230px;
+    background-color:#c4e0c4;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: rgba(19, 126, 67, 0.1) 0px 20px 25px -5px, rgba(10, 90, 53, 0.04) 0px 10px 10px -5px;
+}
+
+.photo{
+    width: 85px;
+    border-radius: 50%;
+}
+
+.player-name{
+    font-size: 1.4rem;
+    font-weight: 500;
+    margin: 0 0 -3px;
+}
+
+.club-info{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+.club-logo{
+    width: 35px;
+    height: 35px;
+}
+
+.club-name{
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: rgb(107, 107, 107);
+
+}
+
+.stats-container{
+    display: flex;
+    justify-content: space-around;
+}
+
+.stat{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 5px;
+}
+
+.stat-bottom{
+    font-size: 0.75rem;
+    font-weight: 400;
+    color: rgb(107, 107, 107);
+}
+
+.stat-top{
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-bottom: -2px;
+}
+
+.player-button{
+    background-color: #ffffff;
+    border:none;
+    border-radius: 12px;
+    padding:7px 20px;
+    font-weight: 500;
+    margin: 12px auto 0;
+    width: 100%;
+    transition: background-color 0.2s linear;
+}
+
+.player-button:hover{
+    background-color: #5fd45f;
+}

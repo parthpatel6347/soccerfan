@@ -1,0 +1,127 @@
+{% extends "layout.html" %} {% block title %} {% endblock %} {% block main%}
+
+<nav>
+  <div
+    class="nav nav-tabs d-flex justify-content-center"
+    id="nav-tab"
+    role="tablist"
+  >
+    <button
+      class="nav-link active"
+      id="nav-team-tab"
+      data-bs-toggle="tab"
+      data-bs-target="#nav-home"
+      type="button"
+      role="tab"
+      aria-controls="nav-home"
+      aria-selected="true"
+    >
+      Teams
+    </button>
+    <button
+      class="nav-link"
+      id="nav-players-tab"
+      data-bs-toggle="tab"
+      data-bs-target="#nav-profile"
+      type="button"
+      role="tab"
+      aria-controls="nav-profile"
+      aria-selected="false"
+    >
+      Players
+    </button>
+  </div>
+</nav>
+<div class="tab-content" id="nav-tabContent">
+  <div
+    class="tab-pane fade show active"
+    id="nav-home"
+    role="tabpanel"
+    aria-labelledby="nav-home-tab"
+  >
+    <div class="index-container">
+      {% if not teams %}
+      <div class="no-data-container">
+        <h5>You have not added any favorite team yet.</h5>
+        <a href="/teams"
+          ><button type="submit" class="search-button">Add Teams</button></a
+        >
+      </div>
+      {% endif %} {% for team in teams %}
+      <div class="team-card">
+        <div class="main-container">
+          <div class="team-header">
+            <img class="team-logo-main" src="{{team["team"]["team_logo"]}}"/>
+            <span class="team-title">{{team["team"]["name"]}}</span>
+          </div>
+          <div class="previous-fixture">
+            <span class="small-title">Previous Fixture</span>
+            <span class="small-info"
+              >{{team["last"][0]["home"]["name"]}}
+              <em>{{team["last"][0]["score"]["home"]}}</em> :
+              <em>{{team["last"][0]["score"]["away"]}}</em>
+              {{team["last"][0]["away"]["name"]}}</span
+            >
+            <span class="match-time">{{team["last"][0]["date"] | dt}}</span>
+          </div>
+          <div class="upcoming-fixture">
+            <span class="mid-title">Upcoming Fixture</span>
+            <span class="mid-info"
+              >{{team["next"][0]["home"]["name"]}} VS
+              {{team["next"][0]["away"]["name"]}}</span
+            >
+            <span class="match-time">{{team["next"][0]["date"] | dt}}</span>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  <div
+    class="tab-pane fade"
+    id="nav-profile"
+    role="tabpanel"
+    aria-labelledby="nav-profile-tab"
+  >
+    <div class="index-container">
+      {% if not players %}
+      <div class="no-data-container">
+        <h5>You have not added any favorite player yet.</h5>
+        <a href="/players"
+          ><button type="submit" class="search-button">Add Players</button></a
+        >
+      </div>
+      {% endif %} {% for player in players %}
+      <div class="player-card-index">
+        <img class="photo" src="{{player["photo"]}}" />
+        <span class="player-name">{{player["name"]}}</span>
+        <div class="club-info">
+          <span class="club-name">{{player["team"]}}</span>
+        </div>
+        <div class="stats-container">
+          <div class="stat">
+            <span class="stat-top">{{player["appearences"]}}</span>
+            <span class="stat-bottom">Matches</span>
+          </div>
+          <div class="stat">
+            <span class="stat-top">{{player["goals"]}}</span>
+            <span class="stat-bottom">Goals</span>
+          </div>
+          <div class="stat">
+            <span class="stat-top">{{player["assists"]}}</span>
+            <span class="stat-bottom">Assists</span>
+          </div>
+          <div class="stat">
+            <span class="stat-top">{{player["rating"] | decimal}}</span>
+            <span class="stat-bottom">Rating</span>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+<!-- asfasdfasdfasdfasdfasdf -->
+
+{% endblock %}

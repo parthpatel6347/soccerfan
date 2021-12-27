@@ -1,0 +1,33 @@
+{% extends "players.html" %} {% block players %} {% if not players %}
+<h5>No player found for your search criteria.</h5>
+{% endif %} {% for player in players %}
+<div class="player-card">
+  <img class="photo" src="{{player["photo"]}}" />
+  <span class="player-name">{{player["name"]}}</span>
+  <div class="club-info">
+    <span class="club-name">{{player["team"]}}</span>
+  </div>
+  <div class="stats-container">
+    <div class="stat">
+      <span class="stat-top">{{player["appearences"]}}</span>
+      <span class="stat-bottom">Matches</span>
+    </div>
+    <div class="stat">
+      <span class="stat-top">{{player["goals"]}}</span>
+      <span class="stat-bottom">Goals</span>
+    </div>
+    <div class="stat">
+      <span class="stat-top">{{player["assists"]}}</span>
+      <span class="stat-bottom">Assists</span>
+    </div>
+    <div class="stat">
+      <span class="stat-top">{{player["rating"]}}</span>
+      <span class="stat-bottom">Rating</span>
+    </div>
+  </div>
+  <form action="/addplayer" method="post">
+    <input type="hidden" value="{{player["id"]}}" name="player_id" />
+    <button class="player-button" type="submit">+Favorites</button>
+  </form>
+</div>
+{% endfor %} {% endblock %}

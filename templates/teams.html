@@ -1,0 +1,22 @@
+{% extends "layout.html" %} {% block title %} - Teams {% endblock %} {% block
+main%}
+<div class="container col-xl-3 col-lg-4 col-md-6 col-sm-8 col-10 mt-5">
+  <form action="/teams" method="post">
+    <div>
+      <input
+        type="text"
+        name="team"
+        placeholder="Search team"
+        class="form-control"
+        required
+      />
+    </div>
+    <div class="button-container">
+      <button type="submit" class="search-button">Search</button>
+    </div>
+  </form>
+</div>
+<div class="found-container">
+  {% if team %} {% block teams %} {% endblock %} {% endif %}
+</div>
+{% endblock %}

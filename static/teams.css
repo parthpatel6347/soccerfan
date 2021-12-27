@@ -1,0 +1,28 @@
+.button-container{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.search-button{
+    background-color: #2ca32c;
+    border:none;
+    border-radius: 12px;
+    padding:8px 20px;
+    font-weight: 500;
+    margin: 10px auto;
+    width: 150px;
+    color: white;
+    transition: background-color 0.2s linear;
+}
+
+.search-button:hover{
+    background-color: #5fd45f;
+}
+
+.found-container{
+    margin-top: 50px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}

@@ -1,0 +1,81 @@
+{% extends "layout.html" %} {% block title %} {% endblock %} {% block main%}
+<nav>
+  <div
+    class="nav nav-tabs d-flex justify-content-center"
+    id="nav-tab"
+    role="tablist"
+  >
+    <button
+      class="nav-link active"
+      id="nav-team-tab"
+      data-bs-toggle="tab"
+      data-bs-target="#nav-home"
+      type="button"
+      role="tab"
+      aria-controls="nav-home"
+      aria-selected="true"
+    >
+      Teams
+    </button>
+    <button
+      class="nav-link"
+      id="nav-players-tab"
+      data-bs-toggle="tab"
+      data-bs-target="#nav-profile"
+      type="button"
+      role="tab"
+      aria-controls="nav-profile"
+      aria-selected="false"
+    >
+      Players
+    </button>
+  </div>
+</nav>
+<div class="tab-content" id="nav-tabContent">
+  <div
+    class="tab-pane fade show active"
+    id="nav-home"
+    role="tabpanel"
+    aria-labelledby="nav-home-tab"
+  >
+    <div class="teams-index-container">
+      <div class="team-card">
+        <div class="main-container">
+          <div class="team-header">
+            <img
+              class="team-logo-main"
+              src="https://media.api-sports.io/football/teams/541.png"
+            />
+            <span class="team-title">Real Madrid</span>
+          </div>
+          <div class="previous-fixture">
+            <span class="small-title">Previous Fixture</span>
+            <span class="small-info"
+              >Atletico Madrid <em>0</em> : <em>2</em> Real Madrid</span
+            >
+            <span class="match-time">12-22-21 09:00 PM</span>
+          </div>
+          <div class="upcoming-fixture">
+            <span class="mid-title">Upcoming Fixture</span>
+            <span class="mid-info">Real Madrid VS Granada</span>
+            <span class="match-time">01-02-22 01:00 PM</span>
+          </div>
+          <!-- <form action="/addteam" method="post">
+        <input type="hidden" value="team" name="team_id" />
+        <button class="custom-button" type="submit">Add to my teams</button>
+      </form> -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="tab-pane fade"
+    id="nav-profile"
+    role="tabpanel"
+    aria-labelledby="nav-profile-tab"
+  >
+    patel
+  </div>
+</div>
+
+{% endblock %}
