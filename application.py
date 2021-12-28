@@ -92,9 +92,6 @@ def index():
 
     return render_template("index.html", teams=teams, players=players)
 
-    ##########################################################
-    # return render_template("index-dummy.html")
-
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
@@ -214,6 +211,7 @@ def teams():
 
         team = get_team_by_name(request.form.get("team"))
 
+        print(team)
         ## If the search returns an empty team array, we send it out to the template, where it will be managed
         if not team:
             return render_template("found-team.html", team=team)
@@ -335,3 +333,14 @@ def add_player():
 
     flash("Player added to favorites")
     return redirect("/")
+
+
+def errorhandler(e):
+    if not isinstance(e, HTTPException):
+        e = InternalServerError()
+    return apology(e.name, e.code)
+
+
+# Listen for errors
+for code in default_exceptions:
+    app.errorhandler(code)(errorhandler)
